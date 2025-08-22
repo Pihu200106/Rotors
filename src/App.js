@@ -6,7 +6,6 @@ import founder from "./assets/founder.jpg";
 import cofounder1 from "./assets/cofounder1.jpg";
 import cofounder2 from "./assets/cofounder2.jpg";
 
-
 // ✅ Import pages
 import IotRobotics from "./IotRobotics";
 import AiCloud from "./AiCloud";
@@ -230,8 +229,20 @@ function HomePage() {
         </div>
 
         {/* Marquee */}
+        {/* Marquee */}
         <div className="marquee" role="presentation">
           <div className="marquee__track">
+            <span>
+              Hands-On • Industry Mentors • Certifications • Career Pathways •{" "}
+            </span>
+            <span>
+              Hands-On • Industry Mentors • Certifications • Career Pathways •{" "}
+            </span>
+            <span>
+              Hands-On • Industry Mentors • Certifications • Career Pathways •{" "}
+            </span>
+
+            {/* duplicate set for seamless infinite scroll */}
             <span>
               Hands-On • Industry Mentors • Certifications • Career Pathways •{" "}
             </span>
@@ -515,56 +526,57 @@ function HomePage() {
         </div>
       </section>
 
-      {/* HIGHLIGHTS / COLLAGE (Elon Musk Style) */}
-      <section id="highlights" className="section">
+      {/* HIGHLIGHTS */}
+      <section id="highlights" className="section section--alt">
         <div className="container">
-          <h2 className="section__title">Highlights & Achievements</h2>
+          <h2 className="section__title">Achivements</h2>
 
-          <div className="collage-frame">
-            <div className="collage-grid">
-              <figure className="tile tile--w3 tile--h2">
-                <img
-                  src={require("./assets/image1.jpeg")}
-                  alt="Highlight 1"
-                  className="tile__img"
-                />
-              </figure>
-              <figure className="tile tile--w2 tile--h2">
-                <img
-                  src={require("./assets/image2.jpeg")}
-                  alt="Highlight 2"
-                  className="tile__img"
-                />
-              </figure>
-              <figure className="tile tile--w2 tile--h1">
-                <img
-                  src={require("./assets/image3.jpeg")}
-                  alt="Highlight 3"
-                  className="tile__img"
-                />
-              </figure>
-              <figure className="tile tile--w3 tile--h3">
-                <img
-                  src={require("./assets/image4.jpeg")}
-                  alt="Highlight 4"
-                  className="tile__img"
-                />
-              </figure>
-              <figure className="tile tile--w2 tile--h1">
-                <img
-                  src={require("./assets/image5.jpeg")}
-                  alt="Highlight 5"
-                  className="tile__img"
-                />
-              </figure>
-              <figure className="tile tile--w2 tile--h2">
-                <img
-                  src={require("./assets/image6.jpeg")}
-                  alt="Highlight 6"
-                  className="tile__img"
-                />
-              </figure>
+          <div className="highlights-marquee">
+            <div className="highlights-track">
+              {[
+                require("./assets/image1.jpeg"),
+                require("./assets/image2.jpeg"),
+                require("./assets/image3.jpeg"),
+                require("./assets/image4.jpeg"),
+                require("./assets/image5.jpeg"),
+                require("./assets/image6.jpeg"),
+              ].map((img, i) => (
+                <div key={i} className="highlight-tile">
+                  <img src={img} alt={`Highlight ${i + 1}`} />
+                </div>
+              ))}
+
+              {/* Duplicate for infinite scroll */}
+              {[
+                require("./assets/image1.jpeg"),
+                require("./assets/image2.jpeg"),
+                require("./assets/image3.jpeg"),
+                require("./assets/image4.jpeg"),
+                require("./assets/image5.jpeg"),
+                require("./assets/image6.jpeg"),
+              ].map((img, i) => (
+                <div key={`dup-${i}`} className="highlight-tile">
+                  <img src={img} alt={`Highlight duplicate ${i + 1}`} />
+                </div>
+              ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+            {/* HORIZONTAL GALLERY (like screenshot) */}
+      <section id="gallery" className="section section--alt">
+        <div className="container">
+          <h2 className="section__title">Highlights</h2>
+          <div className="gallery-scroll">
+            {Array.from({ length: 15 }).map((_, i) => (
+              <div key={i} className="gallery-item">
+                <img
+                  src={require(`./assets/img${i + 1}.jpeg`)}
+                  alt={`Gallery ${i + 1}`}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -593,6 +605,7 @@ function HomePage() {
           </details>
         </div>
       </section>
+
 
       {/* CONTACT */}
       <section id="contact" className="section ctafooter">

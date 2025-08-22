@@ -790,85 +790,187 @@ body{
   background: transparent;
 }
 
-/* === Elon Musk Style Collage === */
-#highlights {
-  padding-top: 64px;
-  padding-bottom: 64px;
-}
-
-/* The outer rectangle frame that contains everything neatly */
-.collage-frame {
-  background: radial-gradient(120% 120% at 10% 10%, rgba(21,212,255,0.08), transparent 55%),
-              linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 18px;
-  padding: 14px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.03);
-  overflow: hidden;              /* keeps everything inside the rectangle */
-}
-
-/* Masonry-like grid but with strict rows to maintain the rectangular boundary */
-.collage-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 110px;         /* row unit; tiles span multiples of this */
-  gap: 10px;                     /* thin gaps = premium look */
-}
-
-/* Each tile is a card with subtle rounding & hover elevation */
-.tile {
+.highlights-marquee {
   position: relative;
-  border-radius: 12px;
   overflow: hidden;
-  background: #0b0f1a;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-  transform: translateZ(0);      /* enables smooth GPU transforms */
+  width: 100%;
 }
 
-.tile__img {
+.highlights-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.highlight-tile {
+  flex: 0 0 auto;
+  width: 260px; /* adjust size */
+  height: 180px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 255, 255, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.highlight-tile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform .5s ease, filter .5s ease;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-/* Tesla/SpaceX hover: gentle zoom + brightness */
-.tile:hover .tile__img {
-  transform: scale(1.06);
-  filter: brightness(1.12) contrast(1.02);
+.highlight-tile:hover img {
+  transform: scale(1.1);
 }
 
-/* Optional subtle glow on hover, kept inside the rectangle */
-.tile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(60% 60% at 50% 50%, rgba(21,212,255,0.12), transparent 70%);
-  opacity: 0;
-  transition: opacity .4s ease;
-  pointer-events: none;
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
-.tile:hover::after { opacity: 1; }
 
-/* Span utilities to make some big, some small */
-.tile--w2 { grid-column: span 2; }
-.tile--w3 { grid-column: span 3; }
-.tile--w4 { grid-column: span 4; }
-
-.tile--h1 { grid-row: span 1; }
-.tile--h2 { grid-row: span 2; }
-.tile--h3 { grid-row: span 3; }
-
-/* Responsiveness: keep the entire collage a neat rectangle on smaller screens */
-@media (max-width: 1200px) {
-  .collage-grid { grid-template-columns: repeat(8, 1fr); grid-auto-rows: 100px; }
+/* Horizontal Gallery Scroll */
+.gallery-scroll {
+  display: flex;
+  gap: 24px;                     /* spacing between tiles */
+  overflow-x: auto;               /* horizontal scroll */
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  -webkit-overflow-scrolling: touch;
 }
-@media (max-width: 900px) {
-  .collage-grid { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 90px; }
+
+.gallery-item {
+  flex: 0 0 auto;                 /* prevent shrink */
+  width: 300px;                   /* control card width */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a142b;            /* subtle bg */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
 }
-@media (max-width: 640px) {
-  .collage-frame { padding: 10px; border-radius: 14px; }
-  .collage-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 80px; gap: 8px; }
-  .tile--w3 { grid-column: span 4; }  /* stack wider tiles smartly on mobile */
-  .tile--h3 { grid-row: span 2; }     /* avoid comically tall tiles on phones */
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+/* Hide scrollbars but keep scroll */
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+.gallery-scroll {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;
+}
+.gallery-item {
+  flex: 0 0 auto;
+  width: 300px;         /* fixed width */
+  height: 200px;        /* fixed height */
+  border-radius: 16px;
+  overflow: hidden;
+  background: #0a142b;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* crop nicely instead of stretching */
+  display: block;
+  border-radius: 16px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1; /* take full height */
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* push footer down */
+}
+
+footer {
+  margin-top: auto; /* stick footer at bottom */
+}
+
+/* ✅ Mobile-Friendly Enhancements (UI Safe) */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem; /* slightly smaller for small screens */
+    line-height: 1.4;
+  }
+
+  .container, main, section {
+    padding: 0.75rem;
+  }
+
+  /* Navbar stacking */
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  /* Grid layouts become single-column */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  /* Gallery: make images smaller & scrollable */
+  .gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+  .gallery-item {
+    width: 80% !important;
+    flex: 0 0 auto;
+  }
+
+  /* Headings scale */
+  h1, h2, h3 {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+
+  /* Buttons scale */
+  button, .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* ✅ Tablet tweaks */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
 }

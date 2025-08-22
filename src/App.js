@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import logo from "./assets/ROTORS.png";
+<<<<<<< HEAD
 import founder from "./assets/founder.jpg";
 import cofounder1 from "./assets/cofounder1.jpg";
 import cofounder2 from "./assets/cofounder2.jpg";
+=======
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
 
 // ✅ Import pages
 import IotRobotics from "./IotRobotics";
@@ -32,25 +35,42 @@ function HomePage() {
 
   const founders = [
     {
+<<<<<<< HEAD
       name: "Anuj Narain",
       role: "Founder & CEO",
       img: founder,
       linkedin:
         "https://www.linkedin.com/in/narainanuj?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+=======
+      name: "Anuj",
+      role: "Founder & CEO",
+      bio: "Visionary leader passionate about drones, robotics, and innovation.",
+      img: require("./assets/founder.jpg"),
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
     },
     {
       name: "Krish Agarwal",
       role: "Co-Founder",
+<<<<<<< HEAD
       img: cofounder1,
       linkedin:
         "https://www.linkedin.com/in/krish-agarwal-140920301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+=======
+      bio: "Tech enthusiast driving research and development in robotics.",
+      img: require("./assets/cofounder1.jpg"),
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
     },
     {
       name: "Somya Sharma",
       role: "Co-Founder",
+<<<<<<< HEAD
       img: cofounder2,
       linkedin:
         "https://www.linkedin.com/in/somya-sharma-486a22305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+=======
+      bio: "Focused on strategy, operations, and scaling Rotors globally.",
+      img: require("./assets/cofounder2.jpg"),
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
     },
   ];
 
@@ -173,17 +193,31 @@ function HomePage() {
         </div>
       </header>
 
+<<<<<<< HEAD
       {/* HERO */}
+=======
+            {/* HERO */}
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
       <section className="hero">
         <div className="container hero__grid">
           {/* Left - Text */}
           <div className="hero__copy">
             <h1 className="hero__title">
+<<<<<<< HEAD
               <span className="accent">ROTORS</span>
               <br />
               Build the Future. Now.
             </h1>
             <p className="hero__tagline">IoT • AI • Cloud • Robotics</p>
+=======
+              <span className="accent">ROTORS</span>  
+              <br />
+              Build the Future. Now.
+            </h1>
+            <p className="hero__tagline">
+              IoT • AI • Cloud • Robotics  
+            </p>
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
 
             <div className="cta">
               <a className="btn btn--primary btn--glow" href="#courses">
@@ -229,6 +263,7 @@ function HomePage() {
         </div>
 
         {/* Marquee */}
+<<<<<<< HEAD
         {/* Marquee */}
         <div className="marquee" role="presentation">
           <div className="marquee__track">
@@ -252,11 +287,23 @@ function HomePage() {
             <span>
               Hands-On • Industry Mentors • Certifications • Career Pathways •{" "}
             </span>
+=======
+        <div className="marquee" role="presentation">
+          <div className="marquee__track">
+            <span>Hands-On • Industry Mentors • Certifications • Career Pathways • </span>
+            <span>Hands-On • Industry Mentors • Certifications • Career Pathways • </span>
+            <span>Hands-On • Industry Mentors • Certifications • Career Pathways • </span>
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
           </div>
         </div>
       </section>
 
+<<<<<<< HEAD
       {/* ABOUT US */}
+=======
+
+            {/* ABOUT US */}
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
       <section id="about" className="section section--alt">
         <div className="container">
           <h2 className="section__title">About Us</h2>
@@ -313,6 +360,10 @@ function HomePage() {
         </div>
       </section>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
       {/* WHY US */}
       <section id="why" className="section">
         <div className="container">
@@ -500,6 +551,7 @@ function HomePage() {
                   {founder.name}
                 </h3>
                 <p className="italic text-gray-300">{founder.role}</p>
+<<<<<<< HEAD
 
                 {/* LinkedIn Icon */}
                 <div className="mt-4 flex justify-center">
@@ -575,6 +627,9 @@ function HomePage() {
                   src={require(`./assets/img${i + 1}.jpeg`)}
                   alt={`Gallery ${i + 1}`}
                 />
+=======
+                <p className="mt-3 text-gray-400">{founder.bio}</p>
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
               </div>
             ))}
           </div>
@@ -606,7 +661,10 @@ function HomePage() {
         </div>
       </section>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
       {/* CONTACT */}
       <section id="contact" className="section ctafooter">
         <div className="container ctafooter__inner glass">

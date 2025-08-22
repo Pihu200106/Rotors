@@ -7,8 +7,12 @@
     "@testing-library/jest-dom": "^6.7.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+<<<<<<< HEAD
     "ajv": "^6.12.6",
     "ajv-keywords": "^3.5.2",
+=======
+    "ajv": "^8.17.1",
+>>>>>>> d33f6937acc671ebf5b7d4cde967a6bd9c384ea1
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.8.1",
